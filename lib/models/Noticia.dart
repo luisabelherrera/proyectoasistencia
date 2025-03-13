@@ -18,7 +18,7 @@ class Noticia {
   });
 
   factory Noticia.fromJson(Map<String, dynamic> json) {
-    const String baseUrl = 'http://192.168.1.18:9098';
+    const String baseUrl = 'http://192.168.203.14:9098';
     final imagenUrl = json['imagenPath'] != null ? '$baseUrl/api/noticias/imagen/${json['id']}' : null;
     final videoUrl = json['videoPath'] != null ? '$baseUrl/api/noticias/video/${json['id']}' : null;
     print('Imagen URL: $imagenUrl');

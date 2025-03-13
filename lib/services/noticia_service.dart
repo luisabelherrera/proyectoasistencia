@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'package:proyectoasistencia/models/Noticia.dart';
 
 class NoticiaService {
-  static const String baseUrl = 'http://192.168.1.18:9098/api/noticias';
+  static const String baseUrl = 'http://192.168.203.14:9098/api/noticias';
 
   Future<List<Noticia>> obtenerNoticias() async {
     try {
