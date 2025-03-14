@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectoasistencia/screens/login_page.dart';
 import 'package:proyectoasistencia/widgets/drawer_header.dart';
 import 'package:proyectoasistencia/widgets/menu_item.dart';
 import 'package:proyectoasistencia/widgets/section_title.dart';
@@ -20,11 +21,12 @@ class AdminDrawer extends StatelessWidget {
                 children: [
                   // Sección Menú
                   const SectionTitle('Menú'),
-                  MenuItem(
+                 MenuItem(
                     icon: Icons.post_add,
                     title: 'Agregar Noticia',
-                    onTap: () => Navigator.pop(context),
+                    onTap: () => Navigator.pushNamed(context, '/agregar-noticia'),
                   ),
+
                   MenuItem(
                     icon: Icons.chat,
                     title: 'Gestionar Chat',
@@ -165,28 +167,31 @@ class AdminDrawer extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: ElevatedButton.icon(
-                onPressed: () {
-                  Navigator.pop(context);
-                  // Lógica para cerrar sesión o salir
-                },
-                icon: const Icon(Icons.logout, size: 20),
-                label: const Text('Cerrar Sesión'),
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.redAccent,
-                  foregroundColor: Colors.white,
-                  minimumSize: const Size(double.infinity, 50),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                ),
-              ),
-            ),
+           Padding(
+  padding: const EdgeInsets.all(16),
+  child: ElevatedButton.icon(
+    onPressed: () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginPage()), // Redirige al login
+      );
+    },
+    icon: const Icon(Icons.logout, size: 20),
+    label: const Text('Cerrar Sesión'),
+    style: ElevatedButton.styleFrom(
+      backgroundColor: Colors.redAccent,
+      foregroundColor: Colors.white,
+      minimumSize: const Size(double.infinity, 50),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(12),
+      ),
+    ),
+  ),
+),
           ],
         ),
       ),
     );
   }
-}
+} 
+  
